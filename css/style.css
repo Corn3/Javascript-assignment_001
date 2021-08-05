@@ -1,0 +1,197 @@
+.col-1 { width: 8.333%; }
+.col-2 { width: 16.666%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.333%; }
+.col-5 { width: 41.666%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.333%; }
+.col-8 { width: 66.666%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.333%; }
+.col-11 { width: 91.666%; }
+.col-12 { width: 100%; }
+
+[class*="col-"] {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.2em;
+}
+
+.row {
+    text-align: center;
+}
+.feature-col {
+    padding-top: 1.5rem;
+    text-align: left;
+    margin-left: 2rem;
+}
+.buy-col {
+    text-align: right;
+}
+
+body {
+    --margin-side: 5em;
+    margin: 0 var(--margin-side) 0 var(--margin-side);
+}
+
+header {
+    background-color: black;
+    padding: 1em;
+    margin: 0 calc(var(--margin-side) * -1) 2em calc(var(--margin-side) * -1);
+}
+
+#headerText {
+    color: white;
+    margin-left: calc(var(--margin-side) * 2);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+@media (min-width:1100px) {
+    #bank-card, #work-card, #laptop-card {
+        margin: 0 var(--margin-side) calc(var(--margin-side) / 2) var(--margin-side);
+    }
+}
+
+@media (max-width:1100px) and (min-width:663px) {
+    #bank-card, #work-card, #laptop-card {
+        margin: 0 calc(var(--margin-side) /2) calc(var(--margin-side) / 2) calc(var(--margin-side) /2);
+    }
+}
+
+@media (max-width:663px) {
+    #bank-card, #work-card, #laptop-card {
+        margin: 0 0 calc(var(--margin-side) / 2) 0;
+    }
+}
+
+#bank-card, #work-card, #laptop-card {
+    min-height: 15rem;
+    min-width: 15rem;
+    width: 21vw;
+}
+
+#buy-card {
+    min-height: 21rem;
+    min-width: 20rem;
+    width: 77vw;
+}
+
+#bank-card, #work-card, #laptop-card, #buy-card {
+    box-sizing: border-box;
+    padding: 1.5em;
+    background-color: rgb(252, 252, 252);
+    border: solid rgb(219, 219, 219) 1px;
+    box-shadow: 5px 5px 5px rgb(210, 210, 210);
+}
+
+.money-text {
+    float: left;
+}
+
+.money  {
+    float: right;
+}
+
+.money-container {
+    margin: 1rem 0 1rem 0;
+}
+
+.money-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#buy-card {
+    margin-bottom: calc(var(--margin-side) / 2);
+    border-radius: 20px;
+    padding: 2em;
+}
+
+#laptops-select {
+    border-radius: 4px;
+    height: 2rem;
+}
+
+.card-header {
+    font-size: x-large;
+}
+
+.computerImage {
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 90%;
+    height: auto;
+}
+
+.options-header, #buy-laptop-header, .card-header, #loanButton, #bankButton, #workButton, #repayButton, #buyButton, #laptop-price {
+    font-weight: bold;
+}
+
+.options-header {
+    font-size: 1.2em;
+}
+
+.options-text {
+    font-size: 0.8em;
+}
+
+#buy-laptop-header {
+    font-size: xx-large;
+}
+
+.button-container {
+    margin-top: 3rem;
+}
+
+#loanButton, #repayButton {
+    width: 92%;
+    background-color: #4BF1A1;
+}
+
+#loanButton, #bankButton, #workButton, #repayButton, #buyButton {
+    transition-duration: 0.4s;
+    height: 35px;
+    border-radius: 0.5rem;
+}
+#bankButton, #workButton {
+    width: 45%;
+}
+#bankButton {
+    background-color: #EDEF4D;
+}
+#bankButton:hover {
+    background-color: lightyellow;
+}
+#workButton {
+    color: white;
+    background-color: #4D70F0;
+}
+#workButton:hover {
+    color: black;
+    background-color: rgb(189, 212, 255);
+}
+#repayButton:hover, #loanButton:hover {
+    background-color: #9fface;
+}
+#buyButton {
+    background-color: #4CC9F1;
+}
+#buyButton:hover {
+    background-color: #a3e8ff;
+}
+
+.large-text {
+    font-size: xx-large;
+}
+
+#loanButton:hover, #bankButton:hover, #workButton:hover, #repayButton:hover, #buyButton:hover {
+    cursor: pointer;
+}
