@@ -9,6 +9,10 @@
     
     const baseURL = "https://noroff-komputer-store-api.herokuapp.com/";
 
+    /**
+    * Fetches a number of laptops from a remote URL.
+    * If the fetching was unsuccessful an error is thrown.
+    */
     async function getLaptops() {
         try {
             return (await fetch(baseURL + "computers")).json();
@@ -17,6 +21,12 @@
         }
     }
 
+    /**
+    * Adds an option html element to the DOM, which displayes the
+    * laptops argument passed in the parameter.
+    * This function the checks if the current laptop is the selected laptop
+    * and displays information in regards to it.
+    */
     function addOptionsToDOM(laptops = []) {
         laptops.map(function (laptop) {
             const laptopOptionEl = document.createElement("option");
@@ -27,6 +37,11 @@
         });
     }
 
+    /**
+    * Retrieves all laptops, and then limits the information that
+    * will be displayed to title, description, image, price and also
+    * filters out the number of specs to 3.
+    */
     const laptops = (await getLaptops()).map(function (laptop) {
         return {
             title: laptop.title,
@@ -39,6 +54,11 @@
         }
     });
 
+    /**
+    * Adds a select option for the current laptop,
+    * and displays all of its content to the user.
+    *
+    */
     function displaySelectedOptionSpecs(laptop) {
         removeChildFromElement(laptopsEl);
         
@@ -51,6 +71,11 @@
         changeElementText(laptopPriceTextEl, laptop.price);
     }
 
+    /**
+    * Displays the image of the currently selected laptop.
+    * If the laptop image URL couldn't be found, then a
+    * image is used instead.
+    */
     function displayImage(laptop) {
         removeChildFromElement(imageEl);
         const imageToAddEl = document.createElement("img");
@@ -91,6 +116,13 @@
         displaySelectedOptionSpecs(getSelectedLaptop(laptops));
     });
 
+    /**
+    * Fires up when the buy button is pressed.
+    * This function gets the price of the currently selected laptop,
+    * and checks if the user can afford it.
+    * If the price is too high then the user is alerted about this, otherwise
+    * the price is subtracted from the users bank balance.
+    */
     let buy = function() {
         const price = getSelectedLaptop(laptops).price;
         if(isBalanceHighEnough(price) !== true)
