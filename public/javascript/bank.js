@@ -5,6 +5,11 @@ const balanceText = document.getElementById("balance");
 const loanText = document.getElementById("loan-amount");
 balanceText.textContent = bankBalance;
 
+/**
+* Changes the visibility of the loan elements,
+* and the repay button depending on if a loan
+* exists or not.
+*/
 function changeVisibility() {
     let classToAdd;
     let classToRemove;
@@ -21,11 +26,19 @@ function changeVisibility() {
 
 }
 
+/**
+* Helper method to reduce code duplication for changing of visibility.
+*/
 function changeVisibilityForId(classToAdd, classToRemove, id) {
     document.getElementById(id).classList.remove(classToRemove);
     document.getElementById(id).classList.add(classToAdd);
 }
 
+/**
+* The function that is fired up when the loan button is clicked.
+* Depending on a number of conditions the user will be able to take a loan,
+* otherwise the program will alert the user that the loan was unsuccessful.
+*/
 let loan = function() {
     if(loaned !== false) {
         alert("Can't take a loan until you have paid back your previous loan.");
@@ -49,7 +62,12 @@ let loan = function() {
     changeVisibility();
 }
 
-
+/**
+* Repays the loan which the user has previously taken.
+* Depending on the argument passed in the parameter, 
+* either the full amount is repayed, or only part of it is.
+* A function that is called from the work.js file.
+*/
 function repayLoan(repayAmount) {
     if(loanAmount > repayAmount) {
         loanText.innerText = loanAmount - repayAmount;
